@@ -1,8 +1,8 @@
 // import { List } from '@mui/material'
 import React from 'react'
-import Featured from '../components/featured/Featured'
-import Navbar from '../components/navbar/Navbar'
-import List from '../components/list/List'
+import Featured from '../../components/featured/Featured'
+import Navbar from '../../components/navbar/Navbar'
+import List from '../../components/list/List'
 import './home.scss'
 
 const Home = () => {
