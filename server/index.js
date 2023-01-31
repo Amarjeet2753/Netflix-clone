@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 
 const dotenv=require('dotenv');
 const app=express();
+const authRoute=require("./routes/auth");
 dotenv.config();
+
 
 mongoose.set('strictQuery', true);
 
@@ -17,6 +19,10 @@ console.log("db connected error",err);
        
 })
 
+
+app.use(express.json());
+
+app.use("/server/auth",authRoute);
 
 
 app.listen(8800,()=>{
