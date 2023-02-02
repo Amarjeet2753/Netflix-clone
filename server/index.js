@@ -6,6 +6,7 @@ const app=express();
 const authRoute=require("./routes/auth");
 const userRoute=require("./routes/users");
 const movieRoute=require("./routes/movies");
+const listRoute=require("./routes/lists");
 dotenv.config();
 
 
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use("/server/auth",authRoute);
 app.use("/server/users",userRoute);
 app.use("/server/movies",movieRoute);
+app.use("/server/lists",listRoute);
 
 
 app.listen(8800,()=>{
