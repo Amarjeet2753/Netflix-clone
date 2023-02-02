@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv=require('dotenv');
 const app=express();
 const authRoute=require("./routes/auth");
+const userRoute=require("./routes/users");
 dotenv.config();
 
 
@@ -23,6 +24,7 @@ console.log("db connected error",err);
 app.use(express.json());
 
 app.use("/server/auth",authRoute);
+app.use("/server/users",userRoute);
 
 
 app.listen(8800,()=>{

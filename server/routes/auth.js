@@ -9,11 +9,14 @@ const jwt =require('jsonwebtoken');
 // register
 
 router.post("/register",async (req,res)=>{
+   
     const newUser = User({
         username : req.body.username,
         email : req.body.email,
+        // password :  JSON.stringify(CryptoJS.AES.encrypt(req.body.password, process.env.SECRET_KEY))
         password : CryptoJS.AES.encrypt(req.body.password, process.env.SECRET_KEY).toString()
     })
+   
   
     try{
 
@@ -44,7 +47,7 @@ router.post("/login", async (req,res)=>{
             process.env.SECRET_KEY ,
             {expiresIn :"5d"});
 
-        const {password ,...info} =user._doc;
+        const { password ,...info} =user._doc;
        
         res.status(201).json({...info,accessToken});
 
